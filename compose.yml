@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: app_development
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: password
+      DATABASE_NAME: app_development
+      CORS_ORIGINS: http://localhost:3000
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/app
+      - bundle_data:/usr/local/bundle
+    depends_on:
+      - db
+    command: bundle exec rails server -b 0.0.0.0 -p 3001
+
+volumes:
+  db_data:
+  bundle_data:
