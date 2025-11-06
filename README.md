@@ -1,6 +1,6 @@
-# team-app-backend（仮）
+# poyo-friends-backend
 
-チーム開発用のRails APIバックエンドです。
+PoyoFriendsのRails APIバックエンドです。
 
 ## 概要
 
@@ -20,7 +20,7 @@
 
 ```bash
 git clone <このリポジトリのURL>
-cd team-app-backend
+cd poyo-friends-backend
 ```
 
 ### 2. Docker環境で起動
