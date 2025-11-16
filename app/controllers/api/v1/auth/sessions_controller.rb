@@ -10,7 +10,7 @@ module Api
           if resource.persisted?
             render json: {
               user: UserSerializer.new(resource).serializable_hash[:data][:attributes],
-              message: 'Signed up successfully.'
+              message: "Signed up successfully."
             }, status: :ok
           else
             render json: {

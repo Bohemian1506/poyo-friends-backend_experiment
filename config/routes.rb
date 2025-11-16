@@ -9,17 +9,16 @@ Rails.application.routes.draw do
   # API routes
   namespace :api do
     namespace :v1 do
-
-      devise_for :users, path: 'auth', path_names: {
-        sign_in: 'login',
-        sign_out: 'logout',
-        registration: 'signup'
+      devise_for :users, path: "auth", path_names: {
+        sign_in: "login",
+        sign_out: "logout",
+        registration: "signup"
       },
         controllers: {
-        registrations: 'api/v1/auth/registrations',
-        sessions: 'api/v1/auth/sessions'
+        registrations: "api/v1/auth/registrations",
+        sessions: "api/v1/auth/sessions"
       }
-      resource :user, only: [:show, :update], path: 'users/me'
+      resource :user, only: [ :show, :update ], path: "users/me"
     end
   end
   # Defines the root path route ("/")

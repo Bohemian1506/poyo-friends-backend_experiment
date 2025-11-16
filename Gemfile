@@ -41,6 +41,5 @@ group :development, :test do
 end
 
 # 認証用
-gem 'devise'
-gem 'devise-jwt'  # JWT認証用
-
+gem "devise"
+gem "devise-jwt"  # JWT認証用
