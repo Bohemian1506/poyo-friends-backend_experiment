@@ -41,5 +41,5 @@ group :development, :test do
 end
 
 # 認証
-gem 'devise'
-gem 'devise-jwt'
+gem "devise"
+gem "devise-jwt"
