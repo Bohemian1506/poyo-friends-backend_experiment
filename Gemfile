@@ -42,4 +42,3 @@ end
 
 # 認証
 gem "devise"
-gem "devise-jwt"
