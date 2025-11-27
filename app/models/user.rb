@@ -11,7 +11,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :target_weight, numericality: { greater_than: 0 }, allow_nil: true
   validates :current_weight, numericality: { greater_than: 0 }, allow_nil: true
-end
 
   # provider/uid はペアで存在させる
   validates :provider, presence: true, if: -> { uid.present? }
