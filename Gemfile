@@ -42,19 +42,3 @@ end
 
 # 認証
 gem "devise"
-gem "omniauth-google-oauth2"
-gem "omniauth-rails_csrf_protection"
-
-# バックグラウンド処理
-gem "solid_queue"
-
-# API
-gem "jsonapi-serializer"
-gem "kaminari"
-
-group :development, :test do
-  gem "dotenv-rails"
-  gem "rspec-rails"
-  gem "factory_bot_rails"
-  gem "faker"
-end
