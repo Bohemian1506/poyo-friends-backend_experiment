@@ -30,9 +30,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_31_999999) do
     t.integer "total_raid_points", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index [ "email" ], name: "index_users_on_email", unique: true
+    t.index [ "provider", "uid" ], name: "index_users_on_provider_and_uid", unique: true
+    t.index [ "reset_password_token" ], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "weight_records", force: :cascade do |t|
@@ -41,8 +41,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_31_999999) do
     t.datetime "recorded_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_weight_records_on_user_id"
-    t.index ["user_id", "recorded_at"], name: "index_weight_records_on_user_id_and_recorded_at"
+    t.index [ "user_id" ], name: "index_weight_records_on_user_id"
+    t.index [ "user_id", "recorded_at" ], name: "index_weight_records_on_user_id_and_recorded_at"
   end
 
   create_table "follow_relationships", force: :cascade do |t|
@@ -50,9 +50,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_31_999999) do
     t.bigint "followee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["follower_id", "followee_id"], name: "index_follow_relationships_on_follower_and_followee", unique: true
-    t.index ["follower_id"], name: "index_follow_relationships_on_follower_id"
-    t.index ["followee_id"], name: "index_follow_relationships_on_followee_id"
+    t.index [ "follower_id", "followee_id" ], name: "index_follow_relationships_on_follower_and_followee", unique: true
+    t.index [ "follower_id" ], name: "index_follow_relationships_on_follower_id"
+    t.index [ "followee_id" ], name: "index_follow_relationships_on_followee_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -68,10 +68,10 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_31_999999) do
     t.integer "daily_chokkai_limit", default: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["room_master_id"], name: "index_rooms_on_room_master_id"
-    t.index ["room_type"], name: "index_rooms_on_room_type"
-    t.index ["is_public"], name: "index_rooms_on_is_public"
-    t.index ["expires_at"], name: "index_rooms_on_expires_at"
+    t.index [ "room_master_id" ], name: "index_rooms_on_room_master_id"
+    t.index [ "room_type" ], name: "index_rooms_on_room_type"
+    t.index [ "is_public" ], name: "index_rooms_on_is_public"
+    t.index [ "expires_at" ], name: "index_rooms_on_expires_at"
   end
 
   create_table "room_memberships", force: :cascade do |t|
@@ -83,9 +83,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_31_999999) do
     t.integer "points_used_in_room", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["room_id", "user_id"], name: "index_room_memberships_on_room_and_user", unique: true
-    t.index ["room_id"], name: "index_room_memberships_on_room_id"
-    t.index ["user_id"], name: "index_room_memberships_on_user_id"
+    t.index [ "room_id", "user_id" ], name: "index_room_memberships_on_room_and_user", unique: true
+    t.index [ "room_id" ], name: "index_room_memberships_on_room_id"
+    t.index [ "user_id" ], name: "index_room_memberships_on_user_id"
   end
 
   create_table "room_invitations", force: :cascade do |t|
@@ -97,10 +97,10 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_31_999999) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_room_invitations_on_room_id"
-    t.index ["invited_by_user_id"], name: "index_room_invitations_on_invited_by_user_id"
-    t.index ["invited_user_id"], name: "index_room_invitations_on_invited_user_id"
-    t.index ["invitation_token"], name: "index_room_invitations_on_invitation_token", unique: true
+    t.index [ "room_id" ], name: "index_room_invitations_on_room_id"
+    t.index [ "invited_by_user_id" ], name: "index_room_invitations_on_invited_by_user_id"
+    t.index [ "invited_user_id" ], name: "index_room_invitations_on_invited_user_id"
+    t.index [ "invitation_token" ], name: "index_room_invitations_on_invitation_token", unique: true
   end
 
   create_table "chokkai_templates", force: :cascade do |t|
@@ -113,8 +113,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_31_999999) do
     t.integer "point_type", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["point_type"], name: "index_chokkai_templates_on_point_type"
-    t.index ["level"], name: "index_chokkai_templates_on_level"
+    t.index [ "point_type" ], name: "index_chokkai_templates_on_point_type"
+    t.index [ "level" ], name: "index_chokkai_templates_on_level"
   end
 
   create_table "chokkai_instances", force: :cascade do |t|
@@ -126,12 +126,12 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_31_999999) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["chokkai_template_id"], name: "index_chokkai_instances_on_chokkai_template_id"
-    t.index ["from_user_id"], name: "index_chokkai_instances_on_from_user_id"
-    t.index ["to_user_id"], name: "index_chokkai_instances_on_to_user_id"
-    t.index ["room_id"], name: "index_chokkai_instances_on_room_id"
-    t.index ["status"], name: "index_chokkai_instances_on_status"
-    t.index ["created_at"], name: "index_chokkai_instances_on_created_at"
+    t.index [ "chokkai_template_id" ], name: "index_chokkai_instances_on_chokkai_template_id"
+    t.index [ "from_user_id" ], name: "index_chokkai_instances_on_from_user_id"
+    t.index [ "to_user_id" ], name: "index_chokkai_instances_on_to_user_id"
+    t.index [ "room_id" ], name: "index_chokkai_instances_on_room_id"
+    t.index [ "status" ], name: "index_chokkai_instances_on_status"
+    t.index [ "created_at" ], name: "index_chokkai_instances_on_created_at"
   end
 
   create_table "user_chokkai_blacklists", force: :cascade do |t|
@@ -139,9 +139,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_31_999999) do
     t.bigint "chokkai_template_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "chokkai_template_id"], name: "index_user_chokkai_blacklist_on_user_and_template", unique: true
-    t.index ["user_id"], name: "index_user_chokkai_blacklists_on_user_id"
-    t.index ["chokkai_template_id"], name: "index_user_chokkai_blacklists_on_chokkai_template_id"
+    t.index [ "user_id", "chokkai_template_id" ], name: "index_user_chokkai_blacklist_on_user_and_template", unique: true
+    t.index [ "user_id" ], name: "index_user_chokkai_blacklists_on_user_id"
+    t.index [ "chokkai_template_id" ], name: "index_user_chokkai_blacklists_on_chokkai_template_id"
   end
 
   create_table "titles", force: :cascade do |t|
@@ -153,8 +153,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_31_999999) do
     t.integer "title_category", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["condition_type"], name: "index_titles_on_condition_type"
-    t.index ["title_category"], name: "index_titles_on_title_category"
+    t.index [ "condition_type" ], name: "index_titles_on_condition_type"
+    t.index [ "title_category" ], name: "index_titles_on_title_category"
   end
 
   create_table "user_titles", force: :cascade do |t|
@@ -164,10 +164,10 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_31_999999) do
     t.boolean "is_equipped", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "title_id"], name: "index_user_titles_on_user_and_title", unique: true
-    t.index ["user_id"], name: "index_user_titles_on_user_id"
-    t.index ["title_id"], name: "index_user_titles_on_title_id"
-    t.index ["is_equipped"], name: "index_user_titles_on_is_equipped"
+    t.index [ "user_id", "title_id" ], name: "index_user_titles_on_user_and_title", unique: true
+    t.index [ "user_id" ], name: "index_user_titles_on_user_id"
+    t.index [ "title_id" ], name: "index_user_titles_on_title_id"
+    t.index [ "is_equipped" ], name: "index_user_titles_on_is_equipped"
   end
 
   create_table "stamps", force: :cascade do |t|
@@ -183,10 +183,10 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_31_999999) do
     t.bigint "stamp_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_room_messages_on_room_id"
-    t.index ["user_id"], name: "index_room_messages_on_user_id"
-    t.index ["stamp_id"], name: "index_room_messages_on_stamp_id"
-    t.index ["created_at"], name: "index_room_messages_on_created_at"
+    t.index [ "room_id" ], name: "index_room_messages_on_room_id"
+    t.index [ "user_id" ], name: "index_room_messages_on_user_id"
+    t.index [ "stamp_id" ], name: "index_room_messages_on_stamp_id"
+    t.index [ "created_at" ], name: "index_room_messages_on_created_at"
   end
 
   create_table "point_histories", force: :cascade do |t|
@@ -198,11 +198,11 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_31_999999) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_point_histories_on_user_id"
-    t.index ["room_id"], name: "index_point_histories_on_room_id"
-    t.index ["point_type"], name: "index_point_histories_on_point_type"
-    t.index ["action_type"], name: "index_point_histories_on_action_type"
-    t.index ["created_at"], name: "index_point_histories_on_created_at"
+    t.index [ "user_id" ], name: "index_point_histories_on_user_id"
+    t.index [ "room_id" ], name: "index_point_histories_on_room_id"
+    t.index [ "point_type" ], name: "index_point_histories_on_point_type"
+    t.index [ "action_type" ], name: "index_point_histories_on_action_type"
+    t.index [ "created_at" ], name: "index_point_histories_on_created_at"
   end
 
   # Foreign Keys
