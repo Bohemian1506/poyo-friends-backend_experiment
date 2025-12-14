@@ -40,3 +40,8 @@ Thumbs.db
 desktop.ini
 
 /実装計画
+reference_backend
+config/master.key
+config/credentials.yml.enc
+config/master.key.bak
+bin/sync_upstream
